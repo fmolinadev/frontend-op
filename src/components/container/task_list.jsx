@@ -1,4 +1,4 @@
-import { TaskComponent } from "../pure/task"
+import TaskComponent from "../pure/task"
 import { Task } from "../../models/task.class"
 import { PRIORITY } from "../../models/priority.enum"
 
