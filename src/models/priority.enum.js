@@ -1,5 +1,5 @@
 export const PRIORITY = {
-    LOW: "low",
-    MID: "mid",
-    HIGHT: "hight"
+    LOW: "Baja",
+    MID: "Media",
+    HIGHT: "Alta"
 }
