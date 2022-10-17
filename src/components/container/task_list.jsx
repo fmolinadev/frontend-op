@@ -44,6 +44,39 @@ const TasklistComponent = () => {
     setTask(tempTaskAdd);
   };
 
+  const viewTable = () => {
+    return (
+      <table>
+        <thead class="text-center ">
+          <tr class="columns-4 m-3 justify-center">
+            <th scope="col" class="w-50 h-10">
+              Titulo
+            </th>
+            <th scope="col" class="w-96 h-10">
+              Descripcion
+            </th>
+            <th scope="col" class="w-50 h-10 px-7">
+              Prioridad
+            </th>
+            <th scope="col" class="w-50 h-10">
+              Estado
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          {tasks.map((task, index) => (
+            <TaskComponent
+              key={index}
+              task={task}
+              status={changeStatusTask}
+              erase={deleteTask}
+            />
+          ))}
+        </tbody>
+      </table>
+    );
+  };
+
   useEffect(() => {
     console.log(`Componente de TaskList.`);
     return () => {
@@ -58,38 +91,7 @@ const TasklistComponent = () => {
           <h1 class="font-semibold text-2xl">Tus tareas:</h1>
         </div>
         <div>
-          {tasks.length < 1 ? (
-            <h3>No hay tareas para mostrar</h3>
-          ) : (
-            <table>
-              <thead class="text-center ">
-                <tr class="columns-4 m-3 justify-center">
-                  <th scope="col" class="w-50 h-10">
-                    Titulo
-                  </th>
-                  <th scope="col" class="w-96 h-10">
-                    Descripcion
-                  </th>
-                  <th scope="col" class="w-50 h-10 px-7">
-                    Prioridad
-                  </th>
-                  <th scope="col" class="w-50 h-10">
-                    Estado
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-                {tasks.map((task, index) => (
-                  <TaskComponent
-                    key={index}
-                    task={task}
-                    status={changeStatusTask}
-                    erase={deleteTask}
-                  />
-                ))}
-              </tbody>
-            </table>
-          )}
+          {tasks.length < 1 ? <h3>No hay tareas para mostrar</h3> : viewTable()}
         </div>
         <div>
           <h1 class="font-semibold text-2xl">Crear nueva tarea:</h1>
