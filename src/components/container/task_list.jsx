@@ -95,7 +95,7 @@ const TasklistComponent = () => {
         </div>
         <div>
           <h1 class="font-semibold text-2xl">Crear nueva tarea:</h1>
-          <AddTask add={makeTask} />
+          <AddTask add={makeTask} total={tasks.length} />
         </div>
       </div>
     </div>
