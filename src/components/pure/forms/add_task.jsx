@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { PRIORITY } from "../../../models/priority.enum";
 import { Task } from "../../../models/task.class";
 
-const AddTask = ({ add }) => {
+const AddTask = ({ add, total }) => {
   const nameRef = useRef("");
   const descriptonRef = useRef("");
   const priorityRef = useRef(PRIORITY.MID);
@@ -84,7 +84,7 @@ const AddTask = ({ add }) => {
         type="submit"
         class="md:w-full bg-green-600 text-white font-bold py-2 px-4 border-b-4 hover:border-b-2 border-gray-500 hover:border-gray-100 rounded-full"
       >
-        Crear tarea
+        {total > 0 ? "Agregar tarea" : "Crear tarea"}
       </button>
     </form>
   );
@@ -92,6 +92,7 @@ const AddTask = ({ add }) => {
 
 AddTask.propTypes = {
   add: PropTypes.func.isRequired,
+  total: PropTypes.number.isRequired,
 };
 
 export default AddTask;
